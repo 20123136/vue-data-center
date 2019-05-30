@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="./reset.css">
+  <style type="text/css">
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      background: #060c21;
+    }
+    .box{
+      position: relative;
+      width: 300px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #060c21;
+    }
+
+    .box:before{
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: #fff;
+      z-index: -1;
+    }
+    .box:after{
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: #fff;
+      z-index: -2;
+      filter: blur(40px);
+    }
+    .box:before, .box:after{
+      background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+    }
+    .content{
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="main">
+  <div class="box">
+    <div class="content">
+      <h1>Quick Start</h1>
+      <p>
+        import Vue from 'vue'
+        import Element from 'element-ui'
+
+        Vue.use(Element)
+
+        // or
+        import {
+        Select,
+        Button
+        // ...
+        } from 'element-ui'
+
+        Vue.component(Select.name, Select)
+        Vue.component(Button.name, Button)
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

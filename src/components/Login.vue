@@ -1,53 +1,22 @@
 <template>
   <div class="login">
     <div class="login-panel">
-      <div class="logo-pic">
-        <img src="../assets/logo-blue.png" alt="logo">
-      </div>
-      <div class="project">
-        <div class="project-desc">
-          <h1>数据中心</h1>
-          <img src="../assets/border.jpg" alt="">
-          <h2>aigentsoft 数据中心</h2>
-        </div>
-        <div class="login-info">
-          <!--<form action="">
-            <div class="input-row">
-              <label>租户ID</label>
-              <input type="text" placeholder="租户ID">
-            </div>
-            <div class="input-row">
-              <label>用户名</label>
-              <input type="text" placeholder="用户名">
-            </div>
-            <div class="input-row">
-              <label>密&nbsp;&nbsp;&nbsp;码</label>
-              <input type="text" placeholder="密码">
-            </div>
-            <div class="remeber">
-              <label>记住用户信息</label>
-              <input type="checkbox">
-            </div>
-            <div class="login-btn">
-              <input type="submit" value="登录">
-            </div>
-          </form>-->
-          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="租户ID" prop="tenantId">
-              <el-input v-model="ruleForm2.tenantId" auto-complete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="用户名" prop="username">
-              <el-input v-model="ruleForm2.username" auto-complete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="密码" prop="password">
-              <el-input type="password" v-model="ruleForm2.password" auto-complete="off" @keyup.enter.native="submitForm('ruleForm2')"></el-input>
-            </el-form-item>
-
-            <el-form-item class="login-btn">
-              <el-button class="submit-btn" type="primary" @click="submitForm('ruleForm2')">登录</el-button>
-            </el-form-item>
-          </el-form>
-        </div>
+      <div class="login-info">
+        <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+          <el-form-item  prop="username">
+            <el-input placeholder="用户名" v-model="ruleForm2.username">
+              <template slot="prepend"><span class="iconfont">&#xe64d;</span></template>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input placeholder="密码" v-model="ruleForm2.password">
+              <template slot="prepend"><span class="iconfont">&#xe644;</span></template>
+            </el-input>
+          </el-form-item>
+          <el-form-item class="login-btn">
+            <el-button class="submit-btn" type="primary" @click="submitForm('ruleForm2')">登录</el-button>
+          </el-form-item>
+        </el-form>
       </div>
     </div>
   </div>
@@ -139,47 +108,31 @@ export default {
 <style scoped>
 
   .login{
+    position: relative;
     width: 100%;
     height: 100vh;
-    background: #c6e0d6 url("../assets/bj.jpg") no-repeat 50% 50%;
+    background: #c6e0d6 url("../assets/bg5.jpg") no-repeat 50% 50%;
+    background-size: 100% 100%;
+    display: -webkit-flex;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-  }
-  .logo-pic{
-    width: 100%;
-    height: 130px;
-    display: table-cell;
-    vertical-align: middle;
-    padding-left: 50px;
-  }
-  .logo-pic img{
-    width: 105px;
-    height: 52px;
   }
   .login-panel{
+    position: relative;
     width: 580px;
     height: 420px;
-    background: #b0deff url("../assets/login_box.png");
+    opacity: 0.9;
+    background: #90c1bb  url("../assets/login_box3.png");
     border: 1px #CCC solid;
     border-radius: 10px;
-    box-shadow: 0 0 10px #888888;
-    -moz-box-shadow: 0 0 10px #888888; /* 老的 Firefox */
-  }
-  .project-desc{
-    float: left;
-    width: 40%;
-    height: 100%;
-    padding: 60px 0;
-  }
-  .project-desc img{
-    margin: 8px auto;
+    box-shadow: 0 0 40px #888888;
+    -moz-box-shadow: 0 0 40px #888888; /* 老的 Firefox */
   }
   .login-info{
-    float: left;
-    width: 50%;
+    width: 70%;
     height: 100%;
+    padding: 35% 10% 0 10%;
   }
 
   h1{
@@ -191,12 +144,6 @@ export default {
     font-weight: normal;
   }
 
-  .login-btn .el-form-item__content{
-    width: 228px;
-    height: 40px;
-    padding-left: 30px;
-    padding-top: 15px;
-  }
   .submit-btn{
     width: 100%;
     height: 100%;
