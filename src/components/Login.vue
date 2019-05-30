@@ -9,7 +9,7 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input placeholder="密码" v-model="ruleForm2.password">
+            <el-input placeholder="密码" v-model="ruleForm2.password" @keyup.enter.native="submitForm('ruleForm2')">
               <template slot="prepend"><span class="iconfont">&#xe644;</span></template>
             </el-input>
           </el-form-item>
@@ -49,14 +49,10 @@ export default {
     };
     return {
       ruleForm2: {
-        tenantId: '',
         username: '',
         password: ''
       },
       rules2: {
-        tenantId: [
-          { validator: tenantId, trigger: 'blur' }
-        ],
         username: [
           { validator: username, trigger: 'blur' }
         ],
@@ -74,7 +70,7 @@ export default {
           let params = {
             username: this.ruleForm2.username,
             password: this.ruleForm2.password,
-            domain: this.ruleForm2.tenantId,
+            domain: 'ha.com',
           }
 
           this.$store.dispatch('toLogin', params).then(resp => {
@@ -126,8 +122,8 @@ export default {
     background: #90c1bb  url("../assets/login_box3.png");
     border: 1px #CCC solid;
     border-radius: 10px;
-    box-shadow: 0 0 40px #888888;
-    -moz-box-shadow: 0 0 40px #888888; /* 老的 Firefox */
+    box-shadow: 0 0 40px #20dff7;
+    -moz-box-shadow: 0 0 40px #20dff7; /* 老的 Firefox */
   }
   .login-info{
     width: 70%;
